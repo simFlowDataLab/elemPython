@@ -1,0 +1,43 @@
+format: jb-book
+root: _md/index
+parts:
+- caption: Preparation
+  numbered: true
+  chapters:
+  - file: _notebooks/python/intro
+- caption: Lab1 #(Variables, inputs, calculations, formatting, mathematical functions)
+  numbered: true
+  chapters:
+  - file: _notebooks/python/variables
+  - file: _notebooks/python/io_formatting
+    #- file: _notebooks/python/importLibs
+  - file: _notebooks/python/mathFuncs
+  - file: _notebooks/python/lab1_exercise
+#- caption: Lab2 #(Lists, conditional statements and loops)
+#  numbered: true
+#  chapters:
+#  - file: _notebooks/python/listsDicts
+#  - file: _notebooks/python/ifConditional
+#  - file: _notebooks/python/loops
+#  - file: _notebooks/python/lab2_exercise
+#- caption: Lab3 #(Functions and modular programming)
+#  numbered: true
+#  chapters:
+#  - file: _notebooks/python/functs
+#  - file: _notebooks/python/variablesScope
+#  - file: _notebooks/python/lab3_exercise
+#- caption: Lab4 #(Numpy arrays and plotting)
+#  numbered: true
+#  chapters:
+#  - file: _notebooks/python/numpy_arrays
+#  - file: _notebooks/python/numpyFuncs
+#  - file: _notebooks/python/matplotlib
+#  - file: _notebooks/python/lab4_exercise
+#- caption: Lab5 #(Scientific programming for physical problems)
+#  numbered: true
+#  chapters:
+#  - file: _notebooks/python/lab5_exercise
+#- caption: Exercises
+#  numbered: true
+#  chapters:
+#  - file: _notebooks/python/exercisePy
