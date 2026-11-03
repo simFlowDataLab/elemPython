@@ -1,0 +1,12 @@
+name: elemPyBook_
+channels:
+  - default
+dependencies:
+  - python=3.8
+  - sphinx
+  - pip
+  - numpy
+  - scipy  
+  - matplotlib
+  - pip:
+    - jupyter-book
