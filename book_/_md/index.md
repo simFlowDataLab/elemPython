@@ -13,7 +13,7 @@ Version 1.01
 ### Preface
 This Jupyter Book provides materials for the computer labs in the programming component of AERO12101 (Introduction to Computer-Aided Engineering). It is designed as a self-contained, interactive resource to help undergraduate engineering students learn the essentials of scientific Python and implement basic algorithms.
 
-The book begins with a “Preparation” section to help students set up their Python environment, followed by five sections corresponding to the five computer labs in the unit.
+The book begins with a “Preliminaries” section to help students set up their Python environment, followed by five sections corresponding to the five computer labs in the unit.
 
 To make the most of this book, we encourage you to read the material for each lab and actively explore the examples by running, modifying, and experimenting with the code provided in the notebooks. Exercises at the end of each lab reinforce the relevant intended learning outcomes. After attempting the exercises, you can take the quizzes associated with each lab.
 
