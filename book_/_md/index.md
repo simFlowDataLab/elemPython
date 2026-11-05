@@ -6,8 +6,8 @@
 Version 1.01
 
 ### Contributors
-* Kristaps Stolarovs and [Saleh Rezaeiravesh](https://research.manchester.ac.uk/en/persons/saleh.rezaeiravesh)
-* Some materials are based on older contributions from several SoE summer interns: <br>
+* [Saleh Rezaeiravesh](https://research.manchester.ac.uk/en/persons/saleh.rezaeiravesh) and Kristaps Stolarovs
+* Some materials have benefited from older contributions from the SoE summer interns: <br>
   Afiq Bin Nor Kamil, Michael Hrycek-Robinson, Aditya Mishra, James Morris 
 
 ### Preface
