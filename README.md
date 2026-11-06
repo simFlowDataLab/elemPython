@@ -1,5 +1,5 @@
 # An Ineractive Book for Elementary Programming in Python 
-[GitHub page](https://cfdemons.github.io/numericPythonBook/_md/index.html)
+[GitHub page](https://simflowdatalab.github.io/elemPython/)
 
 ## Folder tree
 * `book_/`: the book materials including text, figures, notebooks, etc.
@@ -33,7 +33,7 @@ Then the `html` version of the book (located in `book_/_build/html/` should be m
     - `git add /docs`
     - `git commit -m 'blahblah'`
     - `git push`
-As a result, the [GitHub page](https://cfdemons.github.io/numericPythonBook/_md/index.html) is updated!
+As a result, the [GitHub page](https://simflowdatalab.github.io/elemPython/) is updated!
 
 
 ## Compile the book by `Jupyter book`
