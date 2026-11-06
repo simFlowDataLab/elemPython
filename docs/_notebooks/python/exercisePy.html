@@ -1,0 +1,2214 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Exercises &#8212; Numerical Methods &amp; Computing in Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_notebooks/python/exercisePy';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../_md/index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Numerical Methods & Computing in Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Numerical Methods & Computing in Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preparation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Preliminaries</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="variables.html">4. Variables &amp; Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_formatting.html">5. Printing, Formatting, and Runtime Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathFuncs.html">6. Arithmetic Operations &amp; Mathematical Expressions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/_notebooks/python/exercisePy.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exercises</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Exercise</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
+<p>Saleh Rezaeiravesh, <a class="reference external" href="mailto:saleh&#46;rezaeiravesh&#37;&#52;&#48;manchester&#46;ac&#46;uk">saleh<span>&#46;</span>rezaeiravesh<span>&#64;</span>manchester<span>&#46;</span>ac<span>&#46;</span>uk</a> <br>
+Department of Mechanical and Aerospace Engineering, The University of Manchester, Manchester, UK</p>
+<div class="alert alert-block alert-info">
+<b>Overview:</b> 
+This notebook offers a collection of examples to practice the concepts covered in the earlier chapters on **Introduction to Python**. These examples emphasize applying Python syntax to solve basic computing problems.
+<p>Whether you have completed the previous notebooks or skipped them, it is strongly recommended to work through the following exercises before moving on to the <strong>Numerical Methods</strong> section. Additionally, attempt to solve each exercise on your own before reviewing the provided solutions.</p>
+</div><p>Only the following Python libraries are required for the exercices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">mt</span>
+<span class="kn">import</span> <span class="nn">cmath</span> <span class="k">as</span> <span class="nn">cmt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Loops</span></code>, <code class="docutils literal notranslate"><span class="pre">Functions</span></code></p>
+<p>Write a Python function that computes <span class="math notranslate nohighlight">\(n!\)</span> for any non-negative integer input <span class="math notranslate nohighlight">\(n\)</span>. Note that,</p>
+<p><strong>Solution:</strong>
+By definition, we have</p>
+<div class="math notranslate nohighlight">
+\[
+n! = (n-1)\times(n-2)\times...\times 2\times 1
+\]</div>
+<p>The following algorithm is used to write the Python function:</p>
+<div class="alert alert-block alert-success">
+<b>Algorithm:</b> 
+<p>Inputs: <span class="math notranslate nohighlight">\(n\)</span> (a non-negative integer)</p>
+<ol class="arabic simple">
+<li><p>Initialize the value of <span class="math notranslate nohighlight">\(n!\)</span>: <code class="docutils literal notranslate"><span class="pre">fact</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+<li><p>Loop over the positive integers from 1 to <span class="math notranslate nohighlight">\(n\)</span> (included)  <br>
+a. multiply <code class="docutils literal notranslate"><span class="pre">fact</span></code> by the current integer</p></li>
+<li><p>return <code class="docutils literal notranslate"><span class="pre">fact</span></code></p></li>
+</ol>
+</div><p>Step 2 in the algorithm can be applied through using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop (recommended):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">fact</span><span class="o">=</span><span class="mi">1</span>
+    
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+       <span class="n">fact</span> <span class="o">*=</span> <span class="n">n</span>
+       <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+        
+    <span class="k">return</span> <span class="n">fact</span>        
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the loop, we start from <code class="docutils literal notranslate"><span class="pre">n</span></code> and iteratively reduce it by 1 until it reaches 1.</p>
+<p>Alternatively, Step 2 in the algorithm can be applied using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">fact</span><span class="o">=</span><span class="mi">1</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+       <span class="n">fact</span> <span class="o">*=</span> <span class="n">i</span>
+
+    <span class="k">return</span> <span class="n">fact</span>       
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, the loop starts from 1 (not 0), and iteratively increase the multiplier by 1, until it reaches <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p>Let’s test these two functions, by calling them for some non-negative integers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">factorial2</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">factorial2</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>720
+720
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">factorial2</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30414093201713378043612608166064768844377641568960512000000000000
+30414093201713378043612608166064768844377641568960512000000000000
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id1">
+<h2>Exercise<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Loops</span></code>, <code class="docutils literal notranslate"><span class="pre">Functions</span></code>, <code class="docutils literal notranslate"><span class="pre">Conditional</span> <span class="pre">statements</span></code></p>
+<p>The binomial coefficients count the subset of <span class="math notranslate nohighlight">\(k\)</span> elements from a set of <span class="math notranslate nohighlight">\(n\)</span> elements, and is defined by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+n \\ k\\
+\end{pmatrix}
+= \frac{n!}{k!(n-k)!}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are both positive integers and <span class="math notranslate nohighlight">\(k\leq n\)</span>.</p>
+<p>Write a Python function that computes the binomial coefficient for input values of <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p>Hint: You can use your function for computing <span class="math notranslate nohighlight">\(n!\)</span>.</p>
+<p><strong>Solution:</strong></p>
+<p>The following algorithm is used to write the Python function:</p>
+<div class="alert alert-block alert-success">
+<b>Algorithm:</b> 
+<p>Inputs: <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> (non-negative integer)</p>
+<ol class="arabic simple">
+<li><p>Initialize the value of binomial coefficient: <code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+<li><p>Compute <code class="docutils literal notranslate"><span class="pre">n!</span></code> <span class="math notranslate nohighlight">\(\to\)</span> <code class="docutils literal notranslate"><span class="pre">n_f</span></code></p></li>
+<li><p>Compute <code class="docutils literal notranslate"><span class="pre">k!</span></code> <span class="math notranslate nohighlight">\(\to\)</span> <code class="docutils literal notranslate"><span class="pre">k_f</span></code></p></li>
+<li><p>Compute <code class="docutils literal notranslate"><span class="pre">(n-k)!</span></code> <span class="math notranslate nohighlight">\(\to\)</span> <code class="docutils literal notranslate"><span class="pre">nk_f</span></code></p></li>
+<li><p>Evaluate <code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">=</span> <span class="pre">n_f/(k_f</span> <span class="pre">*</span> <span class="pre">nk_f)</span> </code></p></li>
+<li><p>return <code class="docutils literal notranslate"><span class="pre">bc</span></code></p></li>
+</ol>
+</div><p>Here is the implementation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binomCoeff</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    
+    <span class="n">n_f</span> <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">k_f</span> <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">nk_f</span> <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>    
+    <span class="n">bc</span> <span class="o">=</span> <span class="n">n_f</span><span class="o">/</span><span class="p">(</span><span class="n">k_f</span><span class="o">*</span><span class="n">nk_f</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">bc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can improve this implementation by checking at the beginning if the input values of <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> are of the write type (non-negative integer):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binomCoeff</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>   
+        
+       <span class="n">n_f</span> <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+       <span class="n">k_f</span> <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+       <span class="n">nk_f</span> <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>    
+       <span class="n">bc</span> <span class="o">=</span> <span class="n">n_f</span><span class="o">/</span><span class="p">(</span><span class="n">k_f</span><span class="o">*</span><span class="n">nk_f</span><span class="p">)</span>       
+    <span class="k">else</span><span class="p">:</span>
+       <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Wrong k or/and n provided.&quot;</span><span class="p">)</span> 
+       
+    <span class="k">return</span> <span class="n">bc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can call the function to test it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">binomCoeff</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">binomCoeff</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following should return an error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">binomCoeff</span><span class="p">(</span><span class="mf">7.2</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">binomCoeff</span><span class="p">(</span><span class="mf">7.2</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="nn">Cell In[8], line 10,</span> in <span class="ni">binomCoeff</span><span class="nt">(n, k)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>    <span class="n">bc</span> <span class="o">=</span> <span class="n">n_f</span><span class="o">/</span><span class="p">(</span><span class="n">k_f</span><span class="o">*</span><span class="n">nk_f</span><span class="p">)</span>       
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">10</span>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Wrong k or/and n provided.&quot;</span><span class="p">)</span> 
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">return</span> <span class="n">bc</span>
+
+<span class="ne">ValueError</span>: Wrong k or/and n provided.
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id2">
+<h2>Exercise<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Loops</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Mathematical</span> <span class="pre">functions</span></code>, <code class="docutils literal notranslate"><span class="pre">Functions</span></code></p>
+<p>Consider the 1D array (vector) <span class="math notranslate nohighlight">\(\mathbf{x} = [x_1,x_2,\cdots,x_n]\)</span> that has <span class="math notranslate nohighlight">\(n\)</span> elements.
+Write a Python function that returns the <span class="math notranslate nohighlight">\(l-p\)</span> norm of input <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> defined as,</p>
+<div class="math notranslate nohighlight">
+\[
+\|\mathbf{x}\|_p = (|x_1|^p + |x_2|^p + \cdots + |x_n|^p)^{1/p} 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(p\)</span> is in a positive integer and <span class="math notranslate nohighlight">\(p\geq 1\)</span>.</p>
+<p><strong>Solution:</strong> Consider the following algorithm:</p>
+<div class="alert alert-block alert-success">
+<b>Algorithm:</b> 
+<p>Inputs: <span class="math notranslate nohighlight">\(x\)</span> (a 1D array), <span class="math notranslate nohighlight">\(p\)</span>: a positive integer</p>
+<ol class="arabic simple">
+<li><p>Initialize the norm value (float): <span class="math notranslate nohighlight">\(f = 0.0\)</span></p></li>
+<li><p>Loop over the elements of the array: <span class="math notranslate nohighlight">\(x_i\)</span> <br>
+a. add <span class="math notranslate nohighlight">\(|x_i|^p\)</span> to <span class="math notranslate nohighlight">\(f\)</span></p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(f^{1/p}\)</span></p></li>
+<li><p>return <span class="math notranslate nohighlight">\(f\)</span></p></li>
+</ol>
+</div><p>Below, we have implemented this algorithm (two variations). Also, we have written a docstring (within “”” “””) that is a good practice for any function we write.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myNorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds l-p norm of 1d array x</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">       `x`: 1d numpy array</span>
+<span class="sd">       `p`: int</span>
+<span class="sd">       </span>
+<span class="sd">    Returns:</span>
+<span class="sd">       `f`: float, ||x||_p       </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="mf">0.0</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="n">p</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="o">**</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">p</span><span class="p">)</span>    
+    
+    <span class="k">return</span> <span class="n">f</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead of a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop over the array indices (above), we can directly iterate over the components of the input array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myNorm2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds l-p norm of 1d array x</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">       `x`: 1d numpy array</span>
+<span class="sd">       `p`: int</span>
+<span class="sd">       </span>
+<span class="sd">    Returns:</span>
+<span class="sd">       `f`: float, ||x||_p       </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="mf">0.0</span>
+    
+    <span class="k">for</span> <span class="n">x_</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x_</span><span class="p">)</span><span class="o">**</span><span class="n">p</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="o">**</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">p</span><span class="p">)</span>    
+    
+    <span class="k">return</span> <span class="n">f</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can test thesw two implementations for any 1d <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array, for instance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.6</span><span class="p">,</span><span class="mf">5.7</span><span class="p">,</span><span class="o">-</span><span class="mf">9.87</span><span class="p">,</span><span class="mf">4.21</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">myNorm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myNorm2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.823554739872712
+10.823554739872712
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">myNorm</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myNorm2</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8749608199630443
+1.8749608199630443
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id3">
+<h2>Exercise<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+<p>Create the following matrix in <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = 
+\begin{bmatrix}
+1 &amp; 4 &amp; -2 \\
+8 &amp; -1 &amp; -2 \\
+-2 &amp; 6 &amp; 2 \\
+\end{bmatrix} 
+\end{split}\]</div>
+<p>Create sub-arrays from <span class="math notranslate nohighlight">\(A\)</span> by extracting its</p>
+<ul class="simple">
+<li><p>(a) second row,</p></li>
+<li><p>(b) last column,</p></li>
+<li><p>(c) top right 2 by 2 elements,</p></li>
+<li><p>(d) diagonal elements,</p></li>
+<li><p>(e) lower-triangular part.</p></li>
+</ul>
+<p><strong>Solution:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span><span class="mf">4.</span><span class="p">,</span><span class="o">-</span><span class="mf">2.</span><span class="p">],[</span><span class="mf">8.</span><span class="p">,</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span><span class="o">-</span><span class="mf">2.</span><span class="p">],[</span><span class="o">-</span><span class="mf">2.</span><span class="p">,</span><span class="mf">6.</span><span class="p">,</span><span class="mf">2.</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.  4. -2.]
+ [ 8. -1. -2.]
+ [-2.  6.  2.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Extracting 2nd row of <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A1</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 8. -1. -2.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Extracting last column of <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A2</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-2. -2.  2.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Extracting top-right 2x2 elements of <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A3</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">:]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 4. -2.]
+ [-1. -2.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Extracting diagonal elements of <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1. -1.  2.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lower-angular part of <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.  0.  0.]
+ [ 8. -1.  0.]
+ [-2.  6.  2.]]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id4">
+<h2>Exercise<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+<p>Create two random 2D arrays of dimension 3 by 2. Concatenate them to create a 2-by-2 and a 3-by-3 matrix</p>
+<p><strong>Solution:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.29540493 0.32018699]
+ [0.2368252  0.60068101]
+ [0.85568455 0.19060631]] (3, 2)
+[[0.63513505 0.43213228]
+ [0.5170077  0.71556394]
+ [0.90044051 0.929163  ]] (3, 2)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h2>Exercise<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Loops</span></code></p>
+<p>Write a Python function that extracts the diagonal elements of any square input 2D matrix.</p>
+<p><strong>Solution:</strong>
+In the following implementation, first we check if the input <span class="math notranslate nohighlight">\(A\)</span> is a square matrix. Then loop over the rows or columns of <span class="math notranslate nohighlight">\(A\)</span> and extract its diagonal elements. These will be added to a 1D array <code class="docutils literal notranslate"><span class="pre">d</span></code> initialized before the loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diagonal</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="c1">#check if A is a square matrix</span>
+    
+       <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+       <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+       
+       <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+           <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
+           
+       <span class="k">return</span> <span class="n">d</span>
+    <span class="k">else</span><span class="p">:</span>   
+       <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input A should be square.&quot;</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can test this function for any square matrix:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">diagonal</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;diagonal elements:&#39;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.74991456 0.34177509 0.88693855]
+ [0.40988141 0.21916712 0.19956807]
+ [0.2863274  0.42904177 0.3463083 ]]
+diagonal elements: [0.74991456 0.21916712 0.3463083 ]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id6">
+<h2>Exercise<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Loops</span></code>, <code class="docutils literal notranslate"><span class="pre">Conditional</span> <span class="pre">statements</span></code></p>
+<p>Write a Python function that switches the rows and columns of any input 2D matrix.</p>
+<p><strong>Solution:</strong>
+Consider the following algorithm and corresponding implementation:</p>
+<div class="alert alert-block alert-success">
+<b>Algorithm:</b> 
+<p>Inputs: <code class="docutils literal notranslate"><span class="pre">A</span></code>, a 2d numpy array of size <span class="math notranslate nohighlight">\(m\times n\)</span></p>
+<ol class="arabic simple">
+<li><p>Initialize <code class="docutils literal notranslate"><span class="pre">B</span></code> as a <span class="math notranslate nohighlight">\(n\times m\)</span> array</p></li>
+<li><p>Loop over the row index of <code class="docutils literal notranslate"><span class="pre">A</span></code> <span class="math notranslate nohighlight">\(\to i\)</span><br />
+a. Loop over the column index of <code class="docutils literal notranslate"><span class="pre">A</span></code> <span class="math notranslate nohighlight">\(\to j\)</span><br />
+a.i. Assign <span class="math notranslate nohighlight">\(A_{i,j}\)</span> to <span class="math notranslate nohighlight">\(B_{j,i}\)</span></p></li>
+<li><p>return <code class="docutils literal notranslate"><span class="pre">B</span></code></p></li>
+</ol>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">trans</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">B</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">B</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s test this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.94317095 0.96713886]
+ [0.99390226 0.12341037]
+ [0.36244084 0.18629865]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">At</span> <span class="o">=</span> <span class="n">trans</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">At</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">At</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.94317095 0.99390226 0.36244084]
+ [0.96713886 0.12341037 0.18629865]]
+(2, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id7">
+<h2>Exercise<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Loops</span></code></p>
+<p>Define the followig matrix as a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array, and then compute the summation of elements along the rows and columns.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+B =
+\begin{bmatrix}
+-1 &amp; 1-2 i &amp; 4i \\
+3+4i &amp; 2 &amp; 2-i
+\end{bmatrix}
+\end{split}\]</div>
+<p><strong>Solution:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+             <span class="p">[</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="o">-</span><span class="mf">2.</span><span class="n">j</span><span class="p">,</span> <span class="mf">4.0</span><span class="n">j</span><span class="p">],</span>
+             <span class="p">[</span><span class="mf">3.</span><span class="o">+</span><span class="mf">4.0</span><span class="n">j</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">-</span><span class="mf">1.0</span><span class="n">j</span><span class="p">]</span>                          
+             <span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-1.+0.j  1.-2.j  0.+4.j]
+ [ 3.+4.j  2.+0.j  2.-1.j]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the following cells, we find the summation of elements using both the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> built-in function <code class="docutils literal notranslate"><span class="pre">sum</span></code> and a script:</p>
+<p>Summation over all elements of <span class="math notranslate nohighlight">\(B\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7+5j)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, you can write a script using nested for loops:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">s1</span> <span class="o">+=</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>        
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7+5j)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Summation of the rows of <span class="math notranslate nohighlight">\(B\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.+4.j 3.-2.j 2.+3.j]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using a script; note that the data type at the initialization should be <code class="docutils literal notranslate"><span class="pre">complex</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">s2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.+4.j 3.-2.j 2.+3.j]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can find the summation of the columns of <span class="math notranslate nohighlight">\(B\)</span> using the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> built-in function and a script:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.+2.j 7.+3.j]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">s3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">s3</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.+2.j 7.+3.j]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id8">
+<h2>Exercise<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Loops</span></code>, <code class="docutils literal notranslate"><span class="pre">Conditional</span> <span class="pre">statements</span></code></p>
+<p>Write a Python function that takes in a 1D array and specifies the element with smallest absolute value and also the indices corresponding to it.</p>
+<p><strong>Solution:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">maxFinder</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1">#initial guess for the maximum value and its index</span>
+    <span class="n">xMax</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  
+    <span class="n">iMax</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>   <span class="c1">#size of the array</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>    
+        
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">xMax</span><span class="p">:</span>
+           <span class="n">iMax</span> <span class="o">=</span> <span class="n">i</span> 
+           <span class="n">xMax</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            
+    <span class="k">return</span> <span class="n">iMax</span><span class="p">,</span><span class="n">xMax</span>            
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s test this implementation for random arrays of different sizes. First generate a test array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="mf">10.</span> <span class="o">-</span> <span class="mf">5.0</span>   <span class="c1">#random values over [-5,5]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-2.14286084e+00  4.23024985e-01  3.59311282e+00  3.47699975e+00
+ -1.59015486e+00  3.51941471e+00  2.38691905e+00 -1.55240180e+00
+  3.46146225e+00  3.69965257e+00  2.44484388e+00 -3.44211518e+00
+  1.81980043e+00 -4.95518637e-01  4.23214957e+00  4.20575303e+00
+ -1.10850772e+00  1.89910238e+00  3.11756798e+00  4.18047299e+00
+ -1.82983873e-01 -9.01051664e-01  3.60607861e+00 -3.68835787e+00
+ -3.07297709e+00 -6.28975556e-01 -6.60536899e-02  2.82851817e+00
+  1.01499523e+00  3.31996045e+00 -4.56773297e+00 -1.48292854e+00
+ -2.56838735e+00 -2.18351946e+00  4.44318904e+00  3.79037039e+00
+  4.42304626e+00  4.37386668e+00 -3.17350028e-01  1.23186857e+00
+ -3.89061506e-01  4.57050126e+00  2.21185270e+00 -2.63293283e+00
+ -3.50297525e-01 -2.10714964e+00 -4.94741307e-02  3.00390737e+00
+  1.78096506e+00  4.66726122e+00  3.75391343e+00 -2.39683674e+00
+ -4.59276099e+00 -1.40688357e+00 -1.96006520e+00 -2.34462082e+00
+  5.22401567e-01 -1.35583458e-02 -2.27494827e+00  2.25442900e+00
+ -1.15108837e-01  7.64713691e-01  2.35159008e+00 -3.11751969e+00
+ -3.69472096e+00 -5.64885058e-04  3.39761965e+00  4.16590650e+00
+  2.36495692e+00 -3.68377349e+00  4.75179168e+00 -8.98697476e-01
+  4.35011159e+00 -2.20206605e+00  2.19680906e+00  1.62545464e+00
+ -2.37693241e+00 -2.57801453e+00  1.21627473e+00 -4.51015072e+00
+  1.40659330e+00  4.99841412e+00  3.04894773e+00 -8.72172634e-01
+ -3.28679776e+00  4.64938385e+00 -4.65581247e+00  4.43430667e+00
+  1.48987867e+00 -2.07700001e+00  3.90919364e+00  4.63251763e-01
+  3.44069379e+00 -4.93982032e+00 -1.78483776e+00 -1.23987227e+00
+  1.05798361e+00 -4.24368890e+00 -2.27163745e+00  2.92254637e+00]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Call the function for the generated array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iMax</span> <span class="p">,</span> <span class="n">xMax</span> <span class="o">=</span> <span class="n">maxFinder</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">iMax</span><span class="p">,</span><span class="n">xMax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>81 4.998414120105309
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id9">
+<h2>Exercise<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Loops</span></code>, <code class="docutils literal notranslate"><span class="pre">Conditional</span> <span class="pre">statements</span></code></p>
+<p>Redo the previous exercise but for 2D input arrays.</p>
+<p><strong>Solution:</strong> We just need to extend the above function considering nested loops for going through the rows and columns of the 2D input arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">maxFinder2D</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="c1">#initial guess for the maximum value and its index</span>
+    <span class="n">aMax</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>  
+    <span class="n">iMax</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">jMax</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1">#number of A&#39;s rows</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="c1">#number of A&#39;s columns</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>    
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>    
+        
+           <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">aMax</span><span class="p">:</span>                
+              <span class="n">iMax</span> <span class="o">=</span> <span class="n">i</span> 
+              <span class="n">jMax</span> <span class="o">=</span> <span class="n">j</span>
+              <span class="n">aMax</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+            
+    <span class="k">return</span> <span class="n">iMax</span><span class="p">,</span><span class="n">jMax</span><span class="p">,</span><span class="n">aMax</span>     
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s test this for a random 2D array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">80</span>   <span class="c1">#number of rows and columns</span>
+
+<span class="c1">#1D array of size m*n</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="mf">10.</span> <span class="o">-</span> <span class="mf">5.0</span>   <span class="c1">#random values over [-5,5]</span>
+
+<span class="c1">#reshape the array to a 2D array of size mxn</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 80)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, call the function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iMax</span><span class="p">,</span> <span class="n">jMax</span><span class="p">,</span> <span class="n">aMax</span> <span class="o">=</span> <span class="n">maxFinder2D</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">iMax</span><span class="p">,</span> <span class="n">jMax</span><span class="p">,</span> <span class="n">aMax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>28 59 4.999780299249068
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id10">
+<h2>Exercise<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Mathematical</span> <span class="pre">functions</span></code>, <code class="docutils literal notranslate"><span class="pre">Plotting</span></code></p>
+<p>Create a column time vector <span class="math notranslate nohighlight">\(t\)</span> of values from 0 to 2 every 0.001.</p>
+<p>Create a matrix <span class="math notranslate nohighlight">\(X\)</span> comprising two columns: the first being <span class="math notranslate nohighlight">\(f_1(t) = cos(6\pi t)exp(-t^2)\)</span> and the second being <span class="math notranslate nohighlight">\(f_2(t) = 1-1/(2+sin(4\pi t))\)</span>.
+Plot out the two curves.</p>
+<p><strong>Solution:</strong>
+We are going to create an array <code class="docutils literal notranslate"><span class="pre">t</span></code> of evenly-spaced values over <span class="math notranslate nohighlight">\([0,2]\)</span> with the step size <span class="math notranslate nohighlight">\(0.001\)</span>. The size of the array would be:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta t = \frac{2-0}{n} = 0.001 \Rightarrow n = \frac{2}{0.001} = 2000
+\]</div>
+<p>We can create the array <code class="docutils literal notranslate"><span class="pre">t</span></code> using <code class="docutils literal notranslate"><span class="pre">numpy.linspace</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2000</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>   <span class="c1">#2000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The array <span class="math notranslate nohighlight">\(X\)</span> is 2D with size <span class="math notranslate nohighlight">\(n\times 2\)</span>, where its first and second column contains the values of <span class="math notranslate nohighlight">\(f_1(t)\)</span> and <span class="math notranslate nohighlight">\(f_2(t)\)</span>, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>   <span class="c1">#Initialize X</span>
+
+<span class="c1">#Assign values to X&#39;s first and second columns: </span>
+<span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">6.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="o">**</span><span class="mf">2.</span><span class="p">)</span> 
+<span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mf">2.</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">4.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>        
+</pre></div>
+</div>
+</div>
+</div>
+<p>We plot the columns of <span class="math notranslate nohighlight">\(X\)</span> in terms of <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;-b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$cos(6\pi t)exp(-t^2)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;--r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$1-1/(2+sin(4\pi t))$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/419acd84b5195db642421df5c26b5076e1899fd58618873b08e2c96e371c561d.png" src="../../_images/419acd84b5195db642421df5c26b5076e1899fd58618873b08e2c96e371c561d.png" />
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id11">
+<h2>Exercise<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Mathematical</span> <span class="pre">functions</span></code>, <code class="docutils literal notranslate"><span class="pre">Conditional</span> <span class="pre">statement</span></code>, <code class="docutils literal notranslate"><span class="pre">Functions</span></code></p>
+<p>Write a Python function that returns the value of <span class="math notranslate nohighlight">\(f(x)\)</span> for input <span class="math notranslate nohighlight">\(x \in[0,15]\)</span>, where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+f(x) = \left\{\begin{array}{cc}
+1/x \ , &amp; 2\leq x &lt;5 \\
+20\sqrt{\ln(0.1 x)+1}/(1+e^{-5\sin(x)}) \ , &amp; 5\leq x\leq 10 \\ 
+tan(x) \ , &amp; \text{otherwise} \
+\end{array} \right.
+\end{equation}
+\end{split}\]</div>
+<p>Test your function</p>
+<p><strong>Solution:</strong> We need an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to define the function over its different subranges. An easy way is to consider single values of <span class="math notranslate nohighlight">\(x\)</span> in the conditional statement. Hence, we should use the mathematical functions from <code class="docutils literal notranslate"><span class="pre">math</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myF</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+       <span class="n">f</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">x</span>
+    <span class="k">elif</span> <span class="mi">5</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+       <span class="n">f</span> <span class="o">=</span> <span class="mf">20.</span><span class="o">*</span><span class="n">mt</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mf">10.</span><span class="p">)</span><span class="o">+</span><span class="mf">1.</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="n">mt</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">5.</span><span class="o">*</span><span class="n">mt</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+    <span class="k">else</span><span class="p">:</span>
+       <span class="n">f</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+    
+    <span class="k">return</span> <span class="n">f</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can call this function for scalar values of <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">myF</span><span class="p">(</span><span class="mf">2.5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myF</span><span class="p">(</span><span class="mf">0.6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4
+0.6841368083416923
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we have an array of <span class="math notranslate nohighlight">\(x\)</span> values, we call the above function for each member of that. The returned values are collected in a separate array initilized before the loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>  <span class="c1"># values of x</span>
+
+<span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>       <span class="c1">#initialize an array to collect the values of x</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="n">F</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">myF</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>       <span class="c1">#call the function for each member of the x array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can plot <span class="math notranslate nohighlight">\(f(x)\)</span> versus <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="s1">&#39;-b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ad4d7137fabe666c7796bd3735af4aeaf679091d732d300769e587a982292c6d.png" src="../../_images/ad4d7137fabe666c7796bd3735af4aeaf679091d732d300769e587a982292c6d.png" />
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id12">
+<h2>Exercise<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Loops</span></code>, <code class="docutils literal notranslate"><span class="pre">Functions</span></code></p>
+<p>Consider a discrete function where its value at each iteration, <span class="math notranslate nohighlight">\(x_i\)</span>, depends on its value in the previous iteration <span class="math notranslate nohighlight">\(x_{i-1}\)</span> through</p>
+<div class="math notranslate nohighlight">
+\[
+x_i = 0.5 x_{i-1} + \epsilon_i
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_i\)</span> is a random value from a uniform distribution over <span class="math notranslate nohighlight">\([0,1]\)</span>.</p>
+<p>Write a Python function that generates <span class="math notranslate nohighlight">\(n\)</span> successive values of <span class="math notranslate nohighlight">\(x\)</span> for a given initial condition <span class="math notranslate nohighlight">\(x_0\)</span>.</p>
+<p><strong>Solution:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">xVals</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x0</span><span class="p">):</span>
+    
+    <span class="c1">#initialize an array of size n</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>   
+    
+    <span class="c1">#set the initial value in the 1st element of the array</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    
+    <span class="c1">#generate an array of uniform random numbers</span>
+    <span class="n">eps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    
+    <span class="c1">#update the values of x, starting from x[1]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">eps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        
+    <span class="k">return</span> <span class="n">x</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s test the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="n">xVals</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="o">-</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.1         0.34536757  0.729716    0.84249157  0.81510394  0.77401584
+  1.35846739  1.37812512  1.50334064  1.57748077  0.95066616  1.13240079
+  1.25712177  1.40183712  1.60129782  1.48720824  0.7766923   1.36387904
+  1.58483361  1.02791367  0.99622263  1.2670233   1.36051341  1.38477265
+  0.89220438  0.65872496  0.74277722  0.39895071  0.84769179  1.03365471
+  0.95333465  0.91577203  0.51178436  0.84287068  0.79027753  1.29866399
+  1.47413049  1.28248355  1.574493    1.44788916  1.17460329  1.29318356
+  0.88214474  1.11483111  1.36897482  1.19690293  1.33762665  0.7339006
+  1.0070589   1.38101291]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can plot the array <span class="math notranslate nohighlight">\(x\)</span>. For this, we need to create an array of size n of indices to be represented on the horizontal axis:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="s1">&#39;-ob&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8f5bec3661d56395ef2d3806b30d32ec4ef4fe4c5d638eec1e90a97894020952.png" src="../../_images/8f5bec3661d56395ef2d3806b30d32ec4ef4fe4c5d638eec1e90a97894020952.png" />
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id13">
+<h2>Exercise<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Mathematical</span> <span class="pre">functions</span></code>, <code class="docutils literal notranslate"><span class="pre">Functions</span></code></p>
+<p>Consider the quadratic equation <span class="math notranslate nohighlight">\(ax^2+bx+c=0\)</span> with <span class="math notranslate nohighlight">\(a, b, c\)</span> being real numbers and <span class="math notranslate nohighlight">\(a\neq0\)</span>. From calculus, we know that the two roots of this equations can be obtained from,</p>
+<div class="math notranslate nohighlight">
+\[
+x_{1,2} = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
+\]</div>
+<p>Write a Python function that takes in real numbers <span class="math notranslate nohighlight">\(a\neq0\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> and returns roots <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>.</p>
+<p><strong>Solution:</strong>
+In the following implementation, we first check if <span class="math notranslate nohighlight">\(a\neq 0\)</span> is met. If so, the rest is straightforward. Only be careful that the square root function <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> should be called from <code class="docutils literal notranslate"><span class="pre">cmath</span></code> and not <code class="docutils literal notranslate"><span class="pre">math</span></code>, as it is plausible that the result of this function is a complex number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rootPoly2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mf">0.</span><span class="p">:</span>
+       <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;a cannot be zero.&quot;</span><span class="p">)</span> 
+    <span class="k">else</span><span class="p">:</span>
+       <span class="n">d</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mf">2.</span> <span class="o">-</span> <span class="mf">4.</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+       <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">cmt</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+       <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">cmt</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">x1</span><span class="p">,</span><span class="n">x2</span>        
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are some tests:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">rootPoly2</span><span class="p">(</span><span class="mf">2.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="o">-</span><span class="mf">5.</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;roots:&quot;</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roots: (1.3507810593582121+0j) (-1.8507810593582121+0j)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">rootPoly2</span><span class="p">(</span><span class="mf">3.</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="mf">7.</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;roots:&quot;</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roots: (-0.75+1.3307266185559425j) (-0.75-1.3307266185559425j)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">rootPoly2</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mf">2.</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;roots:&quot;</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>roots: (2+0j) (-1+0j)
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id14">
+<h2>Exercise<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">arrays</span></code>, <code class="docutils literal notranslate"><span class="pre">Mathematical</span> <span class="pre">functions</span></code>, <code class="docutils literal notranslate"><span class="pre">Plotting</span></code></p>
+<p>Chebyshev polynomials of order <span class="math notranslate nohighlight">\(k\)</span> over real values of <span class="math notranslate nohighlight">\(x \in [-1,1]\)</span> are defined as,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+T_k(x) = \cos(k \arccos x) \ , \ \ k=0, 1, 2, \ldots \ .
+\end{equation}
+\]</div>
+<p>Write a Python function that returns the value of <span class="math notranslate nohighlight">\(T_k(x)\)</span> for input <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(x\)</span>. Your function should work for both single values and multiple values (arrays) of <span class="math notranslate nohighlight">\(x\)</span>. Additionally, plot the Chebyshev polynomials for <span class="math notranslate nohighlight">\(k=1,2,..,5\)</span> for 200 evenly-spaced values of <span class="math notranslate nohighlight">\(x\)</span> over <span class="math notranslate nohighlight">\([-1,1]\)</span>.</p>
+<p><strong>Solution:</strong>
+In the following imeplementation, we first check that the input <span class="math notranslate nohighlight">\(k\)</span> is a non-negative integer number. Assuming the input <span class="math notranslate nohighlight">\(x\)</span> can be a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array, then the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> mathematical functions are used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">chebyshevPoly</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span> 
+       <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> 
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;k should be a non-negative integer&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">T</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p>This function can be called for single values of <span class="math notranslate nohighlight">\(x\)</span> over <span class="math notranslate nohighlight">\([-1,1]\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">chebyshevPoly</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.58</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chebyshevPoly</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.58</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.3272000000000005
+0.0479308287999998
+</pre></div>
+</div>
+</div>
+</div>
+<p>The function can also be used for <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays of <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="n">T1</span> <span class="o">=</span> <span class="n">chebyshevPoly</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="n">chebyshevPoly</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">T3</span> <span class="o">=</span> <span class="n">chebyshevPoly</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">T4</span> <span class="o">=</span> <span class="n">chebyshevPoly</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">T5</span> <span class="o">=</span> <span class="n">chebyshevPoly</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These can be plotted in a single plot with appropriate labling:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">T1</span><span class="p">,</span><span class="s1">&#39;-b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;T1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;T2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">T3</span><span class="p">,</span><span class="s1">&#39;--k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;T3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">T4</span><span class="p">,</span><span class="s1">&#39;--m&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;T4&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">T5</span><span class="p">,</span><span class="s1">&#39;:c&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;T5&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a38b775b34df17f0f92af81f39fae85d37761108dacf3b0c86c4d190ba143d60.png" src="../../_images/a38b775b34df17f0f92af81f39fae85d37761108dacf3b0c86c4d190ba143d60.png" />
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id15">
+<h2>Exercise<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Mathematical</span> <span class="pre">functions</span></code>, <code class="docutils literal notranslate"><span class="pre">Functions</span></code>, <code class="docutils literal notranslate"><span class="pre">Loops</span></code></p>
+<p>Write Python functions that returns the sum over a finite number of values of a given sequence. The inputs to the function is:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code>: integer, number of values in the sequence.</p></li>
+</ul>
+<p>Implement your functions for the following sequences:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(x_n=exp(-n^2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_n = (1+\frac{1}{n})^n\)</span></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ex1_a</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">s</span><span class="o">=</span><span class="mf">0.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">mt</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="o">**</span><span class="mf">2.</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p>An alternative implementation using <code class="docutils literal notranslate"><span class="pre">numpy</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ex1_b</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">nAr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">nAr</span><span class="o">**</span><span class="mf">2.</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">s</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can verify these two implementations return the same values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ex1_a</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ex1_b</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.3863186024133263
+1.386318602413326
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can modify the above scripts for <span class="math notranslate nohighlight">\(x_n = (1+\frac{1}{n})^n\)</span>.</p>
+<hr class="docutils" />
+</section>
+<section id="id16">
+<h2>Exercise<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Plotting</span></code></p>
+<ol class="arabic simple">
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">numpy</span></code> built-in functions, create an array of positive integer values of <span class="math notranslate nohighlight">\(n\)</span> over <span class="math notranslate nohighlight">\([10,100]\)</span>.</p></li>
+<li><p>Evaluate <span class="math notranslate nohighlight">\(F_n\)</span> defined below at the resulting array of <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
+<li><p>Plot values of <span class="math notranslate nohighlight">\(F_n\)</span> versus <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+F_n = 
+\left[
+\frac{1}{\sqrt{5}} 
+\left(
+\left( \frac{1+\sqrt{5}}{2}\right)^n 
+- 
+\left( \frac{1-\sqrt{5}}{2}\right)^n
+\right)
+\right]^{1/n}
+\]</div>
+<p><strong>Solution:</strong>
+An efficient way of creating an array of positive <span class="math notranslate nohighlight">\(n\)</span> over the given range is to use <code class="docutils literal notranslate"><span class="pre">numpy.arange</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10 20 30 40 50 60 70 80 90]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Evaluate the given function for this array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">mt</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="o">/</span><span class="mf">2.</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">mt</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="o">/</span><span class="mf">2.</span>
+<span class="n">Fn</span> <span class="o">=</span> <span class="p">((</span><span class="n">t1</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="n">t2</span><span class="o">**</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="n">mt</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make a plot (only discrete values are shown by markers):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Fn</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">Fn</span><span class="p">,</span><span class="s1">&#39;ob&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.49291908 1.55422321 1.57520884 1.58580767 1.59220118 1.59647782
+ 1.5995396  1.60183979 1.60363111]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f6d25676e90&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/31f62b06a0ae99113d80cad528579dabbd898799eb0402fa40e8273dea62e224.png" src="../../_images/31f62b06a0ae99113d80cad528579dabbd898799eb0402fa40e8273dea62e224.png" />
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id17">
+<h2>Exercise<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Conditional</span> <span class="pre">statements</span></code>, <code class="docutils literal notranslate"><span class="pre">Loops</span></code>, <code class="docutils literal notranslate"><span class="pre">Plotting</span></code></p>
+<p>Consider the following two functions:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^2 -2 \quad\quad,\quad\quad g(x)=x
+\]</div>
+<p>From analytical solution, we know that the intersection of these two function is at <span class="math notranslate nohighlight">\(x=-1.0\)</span> and <span class="math notranslate nohighlight">\(x=2.0\)</span>.</p>
+<ul class="simple">
+<li><p>Write a Python script that searches values of <span class="math notranslate nohighlight">\(x\)</span> over <span class="math notranslate nohighlight">\([-3.0,3.0]\)</span> to (approximately) find these two roots. You can try different tolerances for getting close to the exact values of the intersection points.</p></li>
+</ul>
+<p><strong>Solution:</strong> Consider the following algorithm</p>
+<div class="alert alert-block alert-success">
+<b>Algorithm:</b> 
+<p>Inputs: <span class="math notranslate nohighlight">\(n\)</span> and tolerance <span class="math notranslate nohighlight">\(\epsilon\)</span></p>
+<ol class="arabic simple">
+<li><p>Create a set of <span class="math notranslate nohighlight">\(n\)</span> evenly-spaced values of <span class="math notranslate nohighlight">\(x\in[-3.0,3.0]\)</span> <span class="math notranslate nohighlight">\(\to\)</span> <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p>Evaluate <span class="math notranslate nohighlight">\(f(x)\)</span> and <span class="math notranslate nohighlight">\(g(x)\)</span> at <code class="docutils literal notranslate"><span class="pre">x</span></code> <span class="math notranslate nohighlight">\(\to\)</span> <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code> <br></p></li>
+<li><p>Create an empty list <code class="docutils literal notranslate"><span class="pre">r</span></code></p></li>
+<li><p>Loop over values of <code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">g</span></code> <span class="math notranslate nohighlight">\(\to\)</span> <code class="docutils literal notranslate"><span class="pre">f[i]</span></code> and <code class="docutils literal notranslate"><span class="pre">g[i]</span></code> <br>
+a. Is <span class="math notranslate nohighlight">\(|f_i - g_i|\leq \epsilon\)</span> <br>
+a.i. If yes, append <code class="docutils literal notranslate"><span class="pre">x[i]</span></code> to <code class="docutils literal notranslate"><span class="pre">r</span></code></p></li>
+</ol>
+</div><p>Set the inputs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eps</span> <span class="o">=</span> <span class="mf">1.e-3</span>   <span class="c1">#tolerance epsilon</span>
+<span class="n">n</span><span class="o">=</span> <span class="mi">1000</span>       <span class="c1">#data resolution (= arrays&#39; size)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create array <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span><span class="mf">3.</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Evaluate <span class="math notranslate nohighlight">\(f(x)\)</span> and <span class="math notranslate nohighlight">\(g(x)\)</span> at the generated <span class="math notranslate nohighlight">\(x\)</span> array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">2.</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Find the intersections:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">eps</span><span class="p">:</span>
+       <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1.0]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plotting</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="s1">&#39;-b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="s1">&#39;--r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;g(x)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="s1">&#39;ok&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Intersection&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/29aca9cdb293e8d554facd0f3c9007fd23b7b8b978e5e8ddc4fd289be1bef19b.png" src="../../_images/29aca9cdb293e8d554facd0f3c9007fd23b7b8b978e5e8ddc4fd289be1bef19b.png" />
+</div>
+</div>
+<p>Depending on the resolution of <span class="math notranslate nohighlight">\(x\)</span> (value of <code class="docutils literal notranslate"><span class="pre">n</span></code>) and chosen tolerance <code class="docutils literal notranslate"><span class="pre">eps</span></code>, you may find various approximations for the intersection points.</p>
+<hr class="docutils" />
+</section>
+<section id="id18">
+<h2>Exercise<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Functions</span></code>, <code class="docutils literal notranslate"><span class="pre">Loops</span></code></p>
+<p>A polynomial of order <span class="math notranslate nohighlight">\(n\)</span> is defined as,</p>
+<div class="math notranslate nohighlight">
+\[
+P_n(x) = a_0 + a_1 x+ a_2 x^2 +\cdots + a_n x^n = \sum_{k=0}^n a_k x^k
+\]</div>
+<p>The vector of coefficients of this polynomial is <span class="math notranslate nohighlight">\(\mathbf{a}=[a_0,a_1,a_2,\cdots,a_n]\)</span>.</p>
+<p>Write a Python function with <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> as the inputs, that returns the value of <span class="math notranslate nohighlight">\(P_n(x)\)</span>. Test your implementations for the following polynomials:</p>
+<div class="math notranslate nohighlight">
+\[
+P_4(x)=1 +0.5x^2+3x^3-6.7 x^4 \quad\quad\,,\quad\quad
+P_5(x)=13.6 -2.5x+2x^2-8.45x^3-6.7 x^5
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x\)</span> is a real number.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span> is an array of real numbers over [-1,2].</p></li>
+</ul>
+<p><strong>Solution:</strong>
+Since the function should work for both scalar and arrays of <span class="math notranslate nohighlight">\(x\)</span>, the best solution is to consider <code class="docutils literal notranslate"><span class="pre">P</span></code> to be a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array of the same size of <span class="math notranslate nohighlight">\(x\)</span>. This means, all the input <span class="math notranslate nohighlight">\(x\)</span> should be 1D <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays, even the scalar ones. The latter should be considered as arrays of size 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myPolyFun</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">P</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="n">i</span>
+        
+    <span class="k">return</span> <span class="n">P</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s evaluate the function for the given <span class="math notranslate nohighlight">\(P_4(x)\)</span> and <span class="math notranslate nohighlight">\(P_5(x)\)</span> at a scalar <span class="math notranslate nohighlight">\(x\)</span> that is defined as an array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.5</span><span class="p">])</span>
+
+<span class="n">P4</span> <span class="o">=</span> <span class="n">myPolyFun</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="o">-</span><span class="mf">6.7</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="n">x1</span><span class="p">)</span>
+<span class="n">P5</span> <span class="o">=</span> <span class="n">myPolyFun</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mf">13.6</span><span class="p">,</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="o">-</span><span class="mf">8.45</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="mf">6.7</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="n">x1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P4 =&#39;</span><span class="p">,</span> <span class="n">P4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P5 =&#39;</span><span class="p">,</span> <span class="n">P5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P4 = [-21.66875]
+P5 = [-65.046875]
+</pre></div>
+</div>
+</div>
+</div>
+<p>For multiple values of <span class="math notranslate nohighlight">\(x\in[-1.,2.]\)</span>, we have</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">P4</span> <span class="o">=</span> <span class="n">myPolyFun</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="o">-</span><span class="mf">6.7</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="n">x2</span><span class="p">)</span>
+<span class="n">P5</span> <span class="o">=</span> <span class="n">myPolyFun</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mf">13.6</span><span class="p">,</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="o">-</span><span class="mf">8.45</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="mf">6.7</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="n">x2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P4 =&#39;</span><span class="p">,</span> <span class="n">P4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P5 =&#39;</span><span class="p">,</span> <span class="n">P5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P4 = [-8.20000000e+00 -7.18935089e+00 -6.26324536e+00 -5.41691141e+00
+ -4.64571266e+00 -3.94514829e+00 -3.31085308e+00 -2.73859743e+00
+ -2.22428728e+00 -1.76396421e+00 -1.35380535e+00 -9.90123457e-01
+ -6.69366847e-01 -3.88119445e-01 -1.43100763e-01  6.88340960e-02
+  2.50694439e-01  4.05353982e-01  5.35550850e-01  6.43887578e-01
+  7.32831108e-01  8.04712793e-01  8.61728395e-01  9.05938085e-01
+  9.39266444e-01  9.63502459e-01  9.80299531e-01  9.91175466e-01
+  9.97512482e-01  1.00055720e+00  1.00142067e+00  1.00107832e+00
+  1.00037001e+00  1.00000000e+00  1.00053697e+00  1.00241399e+00
+  1.00592856e+00  1.01124257e+00  1.01838234e+00  1.02723858e+00
+  1.03756641e+00  1.04898539e+00  1.06097944e+00  1.07289693e+00
+  1.08395062e+00  1.09321768e+00  1.09963969e+00  1.10202265e+00
+  1.09903695e+00  1.08921741e+00  1.07096324e+00  1.04253808e+00
+  1.00206995e+00  9.47551312e-01  8.76839014e-01  7.87654321e-01
+  6.77582908e-01  5.44074858e-01  3.84444664e-01  1.95871226e-01
+ -2.46021447e-02 -2.80067728e-01 -5.73753395e-01 -9.09022608e-01
+ -1.28937442e+00 -1.71844347e+00 -2.20000000e+00 -2.73794983e+00
+ -3.33633438e+00 -3.99933065e+00 -4.73125124e+00 -5.53654434e+00
+ -6.41979373e+00 -7.38571878e+00 -8.43917445e+00 -9.58515129e+00
+ -1.08287754e+01 -1.21753086e+01 -1.36301482e+01 -1.51988271e+01
+ -1.68870137e+01 -1.87005123e+01 -2.06452624e+01 -2.27273393e+01
+ -2.49529540e+01 -2.73284529e+01 -2.98603180e+01 -3.25551670e+01
+ -3.54197531e+01 -3.84609651e+01 -4.16858275e+01 -4.51015002e+01
+ -4.87152788e+01 -5.25345946e+01 -5.65670143e+01 -6.08202403e+01
+ -6.53021105e+01 -7.00205985e+01 -7.49838134e+01 -8.02000000e+01]
+P5 = [  33.25         31.35426466   29.61960084   28.03440277   26.5877015
+   25.26914443   24.06897473   22.97801082   21.98762578   21.08972686
+   20.27673489   19.54156379   18.87759995   18.27868178   17.73907906
+   17.2534725    16.81693312   16.42490175   16.07316844   15.75785197
+   15.47537929   15.22246493   14.99609053   14.79348425   14.6121002
+   14.44959799   14.30382208   14.17278129   14.05462828   13.94763893
+   13.85019186   13.76074789   13.67782943   13.6          13.52584367
+   13.45394449   13.38286599   13.31113059   13.23719909   13.15945011
+   13.07615956   12.98548006   12.88542046   12.77382521   12.64835391
+   12.50646069   12.3453737    12.16207457   11.95327784   11.71541047
+   11.44459121   11.13661014   10.78690808   10.39055606    9.94223476
+    9.43621399    8.86633214    8.22597562    7.50805833    6.70500112
+    5.80871122    4.81056172    3.70137105    2.47138236    1.11024305
+   -0.39301581   -2.05         -3.87297274   -5.87487518   -8.06934698
+  -10.47074683  -13.09417303  -15.95548398  -19.07131877  -22.45911772
+  -26.13714289  -30.12449866  -34.44115226  -39.10795431  -44.14665937
+  -49.57994649  -55.43143973  -61.72572874  -68.48838927  -75.74600375
+  -83.52618179  -91.85758075 -100.7699263  -110.29403292 -120.4618245
+ -131.30635482 -142.86182815 -155.16361977 -168.2482965  -182.15363728
+ -196.91865369 -212.58361047 -229.19004614 -246.78079345 -265.4       ]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+<section id="id19">
+<h2>Exercise<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Functions</span></code>, <code class="docutils literal notranslate"><span class="pre">Loops</span></code></p>
+<p>A geometric series is defined as,</p>
+<div class="math notranslate nohighlight">
+\[
+S_n = 1 + ar + ar^2 + \cdots + ar^n = \sum_{k=0}^n ar^k \,,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> is the initial value and <span class="math notranslate nohighlight">\(r\)</span> is the common ratio. If <span class="math notranslate nohighlight">\(|r|&lt;1\)</span> when <span class="math notranslate nohighlight">\(n\to \infty\)</span>, the summation <span class="math notranslate nohighlight">\(S_n\)</span> converges to <span class="math notranslate nohighlight">\(S=a/(1-r)\)</span>. For any finite value of <span class="math notranslate nohighlight">\(n\)</span>, the error between the summation <span class="math notranslate nohighlight">\(S_n\)</span> and the 1exact value <span class="math notranslate nohighlight">\(S\)</span> can be measured by <span class="math notranslate nohighlight">\(error=|S_n-S|/|S|\)</span>.</p>
+<p>Write a Python script that for given values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(r\)</span> computes <span class="math notranslate nohighlight">\(S_n\)</span>. The code should stop once the <span class="math notranslate nohighlight">\(error\)</span> is less than a given threshold <span class="math notranslate nohighlight">\(\epsilon\)</span>, i.e. when <span class="math notranslate nohighlight">\(error &lt;\epsilon\)</span>. Your code should print the computed value of <span class="math notranslate nohighlight">\(S_n\)</span> and the number of terms required in the summation to reach the preset error limit.</p>
+<p><strong>Solution:</strong> We can consider the following algorithm:</p>
+<div class="alert alert-block alert-success">
+<b>Algorithm:</b> 
+<p>Inputs: real numbers <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(r\)</span> (<span class="math notranslate nohighlight">\(|r|&lt;1\)</span>), and <span class="math notranslate nohighlight">\(\epsilon\)</span></p>
+<ol class="arabic simple">
+<li><p>Initialize the value of <span class="math notranslate nohighlight">\(S_n \to 0\)</span> and error <span class="math notranslate nohighlight">\(e \to 1.0\)</span> (arbitrarily larger than <span class="math notranslate nohighlight">\(\epsilon\)</span>)</p></li>
+<li><p>While <span class="math notranslate nohighlight">\(e &lt; \epsilon\)</span><br />
+a. Add <span class="math notranslate nohighlight">\(ar^k\)</span> to <span class="math notranslate nohighlight">\(S_n\)</span> <br>
+b. Updte the error <span class="math notranslate nohighlight">\(e\)</span></p></li>
+<li><p>return <span class="math notranslate nohighlight">\(S_n\)</span></p></li>
+</ol>
+</div><p>First, we need to define the inputs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">0.2</span>   <span class="c1"># must be less than 1</span>
+<span class="n">eps</span> <span class="o">=</span> <span class="mf">1.e-8</span>    <span class="c1">#epsilon</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The exact value of <span class="math notranslate nohighlight">\(S\)</span> is computed given the above expression. This is required to calculate error <span class="math notranslate nohighlight">\(e\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">a</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">r</span><span class="p">)</span>    <span class="c1">#Exact value of S</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>An implemention can be by using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Sn</span> <span class="o">=</span> <span class="mf">0.0</span>    <span class="c1">#initilize Sn to zero</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mf">1.0</span>   <span class="c1">#initialize the error - it should be something larger than eps</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1">#initialize the counter in the summation</span>
+
+<span class="k">while</span> <span class="n">e</span> <span class="o">&gt;=</span> <span class="n">eps</span><span class="p">:</span>    <span class="c1">#The loop continues until error is not smaller than epsilon</span>
+    
+    <span class="n">Sn</span> <span class="o">+=</span> <span class="n">a</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="n">k</span>     <span class="c1">#Update the summation</span>
+    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>           <span class="c1">#Increase the counter by 1</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">S</span><span class="o">-</span><span class="n">Sn</span><span class="p">)</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>  <span class="c1">#Compute the error</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are the outcome of the loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Exact S = &#39;</span><span class="p">,</span><span class="n">S</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Computed Sn =&#39;</span><span class="p">,</span><span class="n">Sn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Final error =&#39;</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of terms in the summation =&#39;</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exact S =  0.125
+Computed Sn = 0.12499999948800003
+Final error = 4.095999761588587e-09
+Number of terms in the summation = 12
+</pre></div>
+</div>
+</div>
+</div>
+<p>An alternative implementation is to use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. In this case, two main points should be considered:</p>
+<ol class="arabic simple">
+<li><p>We should use <code class="docutils literal notranslate"><span class="pre">break</span></code> if the error becomes less than the preset threshold.</p></li>
+<li><p>Since it is not clear how many terms should considered in the summation, the number of iterations of the <code class="docutils literal notranslate"><span class="pre">loop</span></code> is not known. To rectify this, we can set an arbitrary large upper limit for <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>    <span class="c1">#An arbitrary large number</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Sn</span> <span class="o">=</span> <span class="mf">0.0</span>    <span class="c1">#initilize Sn to zero</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>    <span class="c1">#The loop continues until n-1 unless it breaks due to error being less than the threshold</span>
+    <span class="n">Sn</span> <span class="o">+=</span> <span class="n">a</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="n">k</span>      <span class="c1">#Update the summation</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">S</span><span class="o">-</span><span class="n">Sn</span><span class="p">)</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>  <span class="c1">#Compute the error</span>
+    <span class="k">if</span> <span class="n">e</span> <span class="o">&lt;</span> <span class="n">eps</span><span class="p">:</span>
+       <span class="k">break</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The outcome:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Exact S = &#39;</span><span class="p">,</span><span class="n">S</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Computed Sn =&#39;</span><span class="p">,</span><span class="n">Sn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Final error =&#39;</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of terms in the summation =&#39;</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exact S =  0.125
+Computed Sn = 0.12499999948800003
+Final error = 4.095999761588587e-09
+Number of terms in the summation = 12
+</pre></div>
+</div>
+</div>
+</div>
+<p>Clearly, the outcome of the above two implementations are the same. However, the implementation with the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop may be more intuitive.</p>
+<hr class="docutils" />
+</section>
+<section id="id20">
+<h2>Exercise<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Functions</span></code>, <code class="docutils literal notranslate"><span class="pre">Loops</span></code></p>
+<p>Similar to the previous exercise, find the number of terms required for approximating <span class="math notranslate nohighlight">\(e^x\)</span> for <span class="math notranslate nohighlight">\(|x|&lt;1\)</span> by the following summation:</p>
+<div class="math notranslate nohighlight">
+\[
+e^x \approx \sum_{k=0}^n \frac{x^k}{k!}\,,\quad\quad
+|x|&lt;1
+\]</div>
+<p><strong>Solution:</strong>
+We just follow the structure from the previous exercise. You need a function for evaluating <span class="math notranslate nohighlight">\(k!\)</span> which has been developed in one the earlier exercises (copied below for reference).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">fact</span><span class="o">=</span><span class="mi">1</span>
+    
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+       <span class="n">fact</span> <span class="o">*=</span> <span class="n">n</span>
+       <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+        
+    <span class="k">return</span> <span class="n">fact</span>        
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># inputs</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Note: |x|&lt;1</span>
+<span class="n">eps</span> <span class="o">=</span> <span class="mf">1.e-8</span>
+
+<span class="c1">#exact value</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#initialization</span>
+<span class="n">Sn</span> <span class="o">=</span> <span class="mf">0.0</span>   <span class="c1">#summation</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mf">1.0</span>     <span class="c1">#error</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1">#index in the summation</span>
+
+<span class="k">while</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="n">eps</span><span class="p">:</span>
+      <span class="n">Sn</span> <span class="o">+=</span> <span class="n">x</span><span class="o">**</span><span class="n">k</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+      <span class="n">e</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">S</span><span class="o">-</span><span class="n">Sn</span><span class="p">)</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>  
+      <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Results:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Exact S = &#39;</span><span class="p">,</span><span class="n">S</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Computed Sn =&#39;</span><span class="p">,</span><span class="n">Sn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Final error =&#39;</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of terms in the summation =&#39;</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exact S =  1.6487212707001282
+Computed Sn = 1.6487212650359622
+Final error = 3.4354903559251164e-09
+Number of terms in the summation = 10
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./_notebooks/python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Exercise</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Saleh Rezaeiravesh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

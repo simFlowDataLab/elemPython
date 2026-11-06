@@ -1,0 +1,23 @@
+/* Add custom CSS code here */
+
+/* Custom .alert-success for dark mode */
+html[data-theme="dark"] .alert-success p,
+html[data-theme="dark"] .alert-success span,
+html[data-theme="dark"] .alert-success div,
+html[data-theme="dark"] .alert-success li,
+html[data-theme="dark"] .alert-success code,
+html[data-theme="dark"] .alert-success b,
+html[data-theme="dark"] .alert-success strong {
+  color: #333 !important; /* Dark text for better readability */
+}
+
+/* Make sure math elements are also dark */
+html[data-theme="dark"] .alert-success .math {
+  color: #333 !important;
+}
+
+/* Make links visible but distinct */
+html[data-theme="dark"] .alert-success a {
+  color: #0b5f2a !important;
+  text-decoration: underline;
+}

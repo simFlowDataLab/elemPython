@@ -1,0 +1,783 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 1 Exercises &#8212; Numerical Methods &amp; Computing in Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_notebooks/python/lab1_exercise';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../_md/index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Numerical Methods & Computing in Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Numerical Methods & Computing in Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preparation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Preliminaries</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="variables.html">4. Variables &amp; Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_formatting.html">5. Printing, Formatting, and Runtime Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathFuncs.html">6. Arithmetic Operations &amp; Mathematical Expressions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/_notebooks/python/lab1_exercise.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 1 Exercises</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-quiz">Exercise 5 (Quiz)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-quiz">Exercise 6 (Quiz)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-quiz">Exercise 7 (Quiz)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-1-exercises">
+<h1>Lab 1 Exercises<a class="headerlink" href="#lab-1-exercises" title="Permalink to this heading">#</a></h1>
+<p>Saleh Rezaeiravesh and Kristaps Stolarovs <br>
+<a class="reference external" href="mailto:saleh&#46;rezaeiravesh&#37;&#52;&#48;manchester&#46;ac&#46;uk">saleh<span>&#46;</span>rezaeiravesh<span>&#64;</span>manchester<span>&#46;</span>ac<span>&#46;</span>uk</a>, <a class="reference external" href="mailto:kristaps&#46;stolarovs&#37;&#52;&#48;manchester&#46;ac&#46;uk">kristaps<span>&#46;</span>stolarovs<span>&#64;</span>manchester<span>&#46;</span>ac<span>&#46;</span>uk</a> <br></p>
+<p>Department of Mechanical and Aerospace Engineering, The University of Manchester, Manchester, UK</p>
+<hr class="docutils" />
+<div class="alert alert-block alert-info">
+<b>Overview:</b> 
+Now that you have familiarised yourself with the basic concepts of Python, we will now attempt some example exercises. Whilst the answers to the first few exercises have been provided, exercises 5 through to 7 are part of your quiz and therefore have to be solved by yourself.
+<p>Please remember, the first quizzes are not graded and are designed to aid your learning, so you must attempt these with as little outside assistance as possible.</p>
+</div><p>The following Python libraries are required for the exercises.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">mt</span>
+<span class="kn">import</span> <span class="nn">cmath</span> <span class="k">as</span> <span class="nn">cmt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<p>Try these on your own. Before running your code, <strong>predict</strong> what you think will happen.</p>
+<p><strong>Exercise 1.</strong> A rectangular steel plate is 0.5 m long, 0.25 m wide and 0.01 m thick. The density of steel is 7850 kg/m³. Create a well-named variable for each quantity, then calculate and print the mass of the plate. What is the type of the result?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 2.</strong> Which of the following are valid variable names? Predict first, then test each one by assigning a value to it: <code class="docutils literal notranslate"><span class="pre">2nd_value</span></code>, <code class="docutils literal notranslate"><span class="pre">second_value</span></code>, <code class="docutils literal notranslate"><span class="pre">second-value</span></code>, <code class="docutils literal notranslate"><span class="pre">_value2</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">Class</span></code>. Which of the valid ones follow the recommended style?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3.</strong> Given <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">&quot;7&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">3</span></code>, predict the value <em>and</em> the type of each of the following, then check your answers using <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">type()</span></code>: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">int(a)</span> <span class="pre">+</span> <span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">str(b)</span></code>, <code class="docutils literal notranslate"><span class="pre">float(a)</span> <span class="pre">/</span> <span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4.</strong> A temperature sensor returns the text <code class="docutils literal notranslate"><span class="pre">&quot;21.6&quot;</span></code> (in degrees Celsius). Convert it to a number, convert it to kelvin (add 273.15), and print the result. Then convert the result to an <code class="docutils literal notranslate"><span class="pre">int</span></code>. What information is lost, and how could you keep the nearest whole number instead?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5.</strong> Explain why <code class="docutils literal notranslate"><span class="pre">0.1</span> <span class="pre">*</span> <span class="pre">3</span> <span class="pre">==</span> <span class="pre">0.3</span></code> gives <code class="docutils literal notranslate"><span class="pre">False</span></code>. Write a comparison of <code class="docutils literal notranslate"><span class="pre">0.1</span> <span class="pre">*</span> <span class="pre">3</span></code> and <code class="docutils literal notranslate"><span class="pre">0.3</span></code> that gives <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Consider a complex variable <span class="math notranslate nohighlight">\(z = x + i y \)</span> which can also be written as <span class="math notranslate nohighlight">\(z=r(\cos(\theta) + i \sin(\theta))\)</span>.</p>
+</section>
+<section id="exercise-1">
+<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Variables</span></code>, <code class="docutils literal notranslate"><span class="pre">Comparators</span></code></p>
+<p><strong>Exercise:</strong> You are building a weather monitoring system, and would like to monitor certain parameters. Using Python variables, perform the following tasks:</p>
+<ol class="arabic simple">
+<li><p>Create a variable storing today’s temperature in Celsius (you can use 4.2)</p></li>
+<li><p>Convert this temperature to Fahrenheit using the formula: <span class="math notranslate nohighlight">\((\text{Celsius} * 9/5) + 32\)</span></p></li>
+<li><p>Store the temperature in Kelvin as well (<span class="math notranslate nohighlight">\(\text{Kelvin} = \text{Celsius} + 273.15\)</span>)</p></li>
+<li><p>Create a boolean variable that indicates if it’s above freezing (above 0°C)</p>
+<ul class="simple">
+<li><p>Hint: use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">celsius</span> <span class="pre">&gt;</span> <span class="pre">0:</span></code></p></li>
+<li><p>If you are stuck, refer to the chapter <a class="reference internal" href="ifConditional.html"><span class="doc std std-doc">Conditional statements</span></a></p></li>
+</ul>
+</li>
+<li><p>Store the temperature unit “Celsius” as a string</p></li>
+<li><p>Create a variable that combines a number and a string to show “24.5 Celsius” (using the original Celsius value)</p></li>
+<li><p>Print out all values with appropriate labels using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> statement.</p></li>
+</ol>
+<p>The output might look like:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>Temperature in Celsius: 18.3
+Temperature in Fahrenheit: 214.3
+Temperature in Kelvin: 999.65
+Above freezing? False
+Temperature reading: 24.5 Celsius
+</pre></div>
+</div>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">celsius</span> <span class="o">=</span> <span class="mf">40.5</span>
+<span class="n">fahrenheit</span> <span class="o">=</span> <span class="n">celsius</span> <span class="o">*</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span>
+<span class="n">kelvin</span> <span class="o">=</span> <span class="n">celsius</span> <span class="o">+</span> <span class="mf">273.15</span>
+
+<span class="k">if</span> <span class="n">celsius</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">above_freezing</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">above_freezing</span> <span class="o">=</span> <span class="kc">False</span>
+    
+<span class="n">celsius_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">celsius</span><span class="p">)</span>
+<span class="n">temperature</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">celsius</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; Celsius&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature in Celsius:&quot;</span><span class="p">,</span> <span class="n">celsius</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature in Fahrenheit:&quot;</span><span class="p">,</span> <span class="n">fahrenheit</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature in Kelvin:&quot;</span><span class="p">,</span> <span class="n">kelvin</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Above freezing?&quot;</span><span class="p">,</span> <span class="n">above_freezing</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature reading:&quot;</span><span class="p">,</span> <span class="n">temperature</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperature in Celsius: 40.5
+Temperature in Fahrenheit: 104.9
+Temperature in Kelvin: 313.65
+Above freezing? True
+Temperature reading: 40.5 Celsius
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2">
+<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Variables</span></code>, <code class="docutils literal notranslate"><span class="pre">Casting</span></code>, <code class="docutils literal notranslate"><span class="pre">f-strings</span></code></p>
+<p><strong>Exercise:</strong> A data logger set up to record weather conditions records its readings as text.</p>
+<p>The air pressure is <code class="docutils literal notranslate"><span class="pre">&quot;101325&quot;</span></code> (in Pa) and the air temperature is <code class="docutils literal notranslate"><span class="pre">&quot;15.0&quot;</span></code> (in °C).</p>
+<ol class="arabic simple">
+<li><p>Store both readings as strings, and use <code class="docutils literal notranslate"><span class="pre">type()</span></code> to confirm their type.</p></li>
+<li><p>Convert the readings to floats, and convert the temperature to Kelvin using <span class="math notranslate nohighlight">\(T = T_C + 273.15\)</span>.</p></li>
+<li><p>Compute the air density using the ideal gas law, <span class="math notranslate nohighlight">\(\rho = p/(RT)\)</span>, with <span class="math notranslate nohighlight">\(R = 287.05\)</span> J/(kg K).</p></li>
+<li><p>Print the density to 3 decimal places using an f-string.</p></li>
+<li><p>Explain why <code class="docutils literal notranslate"><span class="pre">int(&quot;15.0&quot;)</span></code> raises an error, whereas <code class="docutils literal notranslate"><span class="pre">float(&quot;15.0&quot;)</span></code> does not.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pressure_str</span> <span class="o">=</span> <span class="s2">&quot;101325&quot;</span>
+<span class="n">temperature_str</span> <span class="o">=</span> <span class="s2">&quot;15.0&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">pressure_str</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">temperature_str</span><span class="p">))</span>
+
+<span class="n">pressure</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pressure_str</span><span class="p">)</span>
+<span class="n">temperature</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">temperature_str</span><span class="p">)</span> <span class="o">+</span> <span class="mf">273.15</span>
+
+<span class="n">gas_constant</span> <span class="o">=</span> <span class="mf">287.05</span>
+<span class="n">density</span> <span class="o">=</span> <span class="n">pressure</span> <span class="o">/</span> <span class="p">(</span><span class="n">gas_constant</span> <span class="o">*</span> <span class="n">temperature</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Air density: </span><span class="si">{</span><span class="n">density</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> kg/m^3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt; &lt;class &#39;str&#39;&gt;
+Air density: 1.225 kg/m^3
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">int()</span></code> can only convert a string that contains an integer. The decimal point in <code class="docutils literal notranslate"><span class="pre">&quot;15.0&quot;</span></code> tells Python that the value is not an integer, and causes a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>, whereas <code class="docutils literal notranslate"><span class="pre">float()</span></code> does not.</p>
+</section>
+<section id="exercise-3">
+<h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Keyboard</span> <span class="pre">input</span></code>, <code class="docutils literal notranslate"><span class="pre">Casting</span></code>, <code class="docutils literal notranslate"><span class="pre">f-strings</span></code></p>
+<p>A rectangular beam has width <span class="math notranslate nohighlight">\(b\)</span> and height <span class="math notranslate nohighlight">\(h\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Use two <code class="docutils literal notranslate"><span class="pre">input</span></code> commands to read <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(h\)</span> in metres. Test your code with <code class="docutils literal notranslate"><span class="pre">0.05</span></code> and <code class="docutils literal notranslate"><span class="pre">0.2</span></code>.</p></li>
+<li><p>Compute the cross-sectional area <span class="math notranslate nohighlight">\(A = bh\)</span> and the second moment of area <span class="math notranslate nohighlight">\(I = bh^3/12\)</span>.</p></li>
+<li><p>Print <span class="math notranslate nohighlight">\(A\)</span> to 4 decimal places, and <span class="math notranslate nohighlight">\(I\)</span> in exponential notation with 3 decimal places.</p></li>
+</ol>
+</section>
+<section id="id1">
+<h3>Solution<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter b in meters: &quot;</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter h in meters: &quot;</span><span class="p">)</span>
+
+<span class="c1"># input() returns strings, so these must be converted before doing any maths</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+<span class="n">area</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">h</span>
+<span class="n">second_moment</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">h</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">12</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Area: </span><span class="si">{</span><span class="n">area</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m^2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Second moment of area: </span><span class="si">{</span><span class="n">second_moment</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> m^4&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter b in meters: &quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">h</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter h in meters: &quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># input() returns strings, so these must be converted before doing any maths</span>
+
+<span class="nn">File ~/anaconda3/envs/elemPyBook_/lib/python3.8/site-packages/ipykernel/kernelbase.py:1281,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1280</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1281</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1282</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1283</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1286</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1287</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-4">
+<h3>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Mathematical</span> <span class="pre">functions</span></code>, <code class="docutils literal notranslate"><span class="pre">Precision</span></code>, <code class="docutils literal notranslate"><span class="pre">f-strings</span></code></p>
+<p>A force of <span class="math notranslate nohighlight">\(F = 850\)</span> N acts at an angle of <span class="math notranslate nohighlight">\(\theta = 35°\)</span> to the horizontal.</p>
+<ol class="arabic simple">
+<li><p>Compute its components, <span class="math notranslate nohighlight">\(F_x = F\cos\theta\)</span> and <span class="math notranslate nohighlight">\(F_y = F\sin\theta\)</span>, and print them to 2 decimal places.</p></li>
+<li><p>Recover the magnitude from the components using <span class="math notranslate nohighlight">\(\texttt{mag} = \sqrt{F_x^2 + F_y^2}\)</span>, and print it.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">magnitude</span> <span class="pre">==</span> <span class="pre">force</span></code> to compare the values and print the result.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">isclose</span></code> from the <code class="docutils literal notranslate"><span class="pre">math</span></code> library to check that this magnitude matches <span class="math notranslate nohighlight">\(F\)</span>.</p></li>
+<li><p>Explain why <code class="docutils literal notranslate"><span class="pre">isclose</span></code> has to be used here, .</p></li>
+</ol>
+<p><em>Hint:</em> The trigonometric functions in <code class="docutils literal notranslate"><span class="pre">math</span></code> expect radians. Use <code class="docutils literal notranslate"><span class="pre">mt.radians()</span></code> to convert from degrees.</p>
+</section>
+<section id="id2">
+<h3>Solution<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">force</span> <span class="o">=</span> <span class="mi">850</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
+
+<span class="n">force_x</span> <span class="o">=</span> <span class="n">force</span> <span class="o">*</span> <span class="n">mt</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+<span class="n">force_y</span> <span class="o">=</span> <span class="n">force</span> <span class="o">*</span> <span class="n">mt</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fx = </span><span class="si">{</span><span class="n">force_x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> N&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fy = </span><span class="si">{</span><span class="n">force_y</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> N&quot;</span><span class="p">)</span>
+
+<span class="n">magnitude</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">force_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">force_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Magnitude: </span><span class="si">{</span><span class="n">magnitude</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matches F? (exact) </span><span class="si">{</span><span class="n">magnitude</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">force</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matches F? (floating-point) </span><span class="si">{</span><span class="n">mt</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">magnitude</span><span class="p">,</span><span class="w"> </span><span class="n">force</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fx = 696.28 N
+Fy = 487.54 N
+Magnitude: 849.9999999999999
+Matches F? (exact) False
+Matches F? (floating-point) True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-5-quiz">
+<h3>Exercise 5 (Quiz)<a class="headerlink" href="#exercise-5-quiz" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Complex</span> <span class="pre">numbers</span></code>, <code class="docutils literal notranslate"><span class="pre">Mathematical</span> <span class="pre">functions</span></code>, <code class="docutils literal notranslate"><span class="pre">f-strings</span></code></p>
+<p>The roots of the quadratic equation <span class="math notranslate nohighlight">\(ax^2 + bx + c = 0\)</span> are given by:</p>
+<div class="math notranslate nohighlight">
+\[
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\]</div>
+<p>Consider the case where <span class="math notranslate nohighlight">\(a = 1\)</span>, <span class="math notranslate nohighlight">\(b = 2\)</span> and <span class="math notranslate nohighlight">\(c = 5\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Store <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span> as variables, then compute the term inside the square root, <span class="math notranslate nohighlight">\(b^2 - 4ac\)</span>, and print its value.</p></li>
+<li><p>Try to take the square root of this value using <code class="docutils literal notranslate"><span class="pre">mt.sqrt</span></code>. What happens, and which library should you use instead?</p></li>
+<li><p>Compute both roots, and use <code class="docutils literal notranslate"><span class="pre">type()</span></code> to check the type of one of them.</p></li>
+<li><p>Print the magnitude of each root to 3 decimal places using an f-string.</p></li>
+</ol>
+<p><em>Hint:</em> The built-in <code class="docutils literal notranslate"><span class="pre">abs</span></code> function returns the magnitude of a complex number.</p>
+</section>
+<section id="exercise-6-quiz">
+<h3>Exercise 6 (Quiz)<a class="headerlink" href="#exercise-6-quiz" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Mathematical</span> <span class="pre">functions</span></code>, <code class="docutils literal notranslate"><span class="pre">Precision</span></code>, <code class="docutils literal notranslate"><span class="pre">f-strings</span></code></p>
+<p>The following two expressions are mathematically identical, and both tend to <span class="math notranslate nohighlight">\(0.5\)</span> as <span class="math notranslate nohighlight">\(x \to 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+g(x) = \frac{1-\cos x}{x^2}, \qquad h(x) = \frac{2\sin^2(x/2)}{x^2}
+\]</div>
+<ol class="arabic simple">
+<li><p>Evaluate both expressions at <span class="math notranslate nohighlight">\(x = 10^{-8}\)</span> and print the results to 6 decimal places.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">isclose</span></code> to check each result against <span class="math notranslate nohighlight">\(0.5\)</span>.</p></li>
+<li><p>Print the value of <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">mt.cos(x)</span></code>. Using what you learned about machine epsilon in the Precision section, explain why <span class="math notranslate nohighlight">\(g(x)\)</span> gives the wrong answer.</p></li>
+</ol>
+</section>
+<section id="exercise-7-quiz">
+<h3>Exercise 7 (Quiz)<a class="headerlink" href="#exercise-7-quiz" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Debugging</span></code>, <code class="docutils literal notranslate"><span class="pre">Keyboard</span> <span class="pre">input</span></code>, <code class="docutils literal notranslate"><span class="pre">Mathematical</span> <span class="pre">functions</span></code>, <code class="docutils literal notranslate"><span class="pre">f-strings</span></code></p>
+<p>The following code should compute the maximum height and the time to reach it for a projectile launched at a given speed and angle, using <span class="math notranslate nohighlight">\(v_y = v\sin\theta\)</span>, <span class="math notranslate nohighlight">\(H = v_y^2/(2g)\)</span> and <span class="math notranslate nohighlight">\(t = v_y/g\)</span>. However, it contains several bugs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed</span><span class="p">,</span> <span class="n">angle_deg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter speed (m/s) and launch angle (deg): &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="n">vertical_speed</span> <span class="o">=</span> <span class="n">speed</span> <span class="o">*</span> <span class="n">mt</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">)</span>
+<span class="n">max_height</span> <span class="o">=</span> <span class="n">vertical_speed</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">g</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum height: </span><span class="si">{max_height:.2f}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time to apex: </span><span class="si">{</span><span class="n">vertical_speed</span><span class="o">/</span><span class="n">g</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">speed</span><span class="p">,</span> <span class="n">angle_deg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter speed (m/s) and launch angle (deg): &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">vertical_speed</span> <span class="o">=</span> <span class="n">speed</span> <span class="o">*</span> <span class="n">mt</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: not enough values to unpack (expected 2, got 0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Copy the code into the cell below and fix it. Then run it with the input <code class="docutils literal notranslate"><span class="pre">30</span> <span class="pre">40</span></code>, and print both results to 2 decimal places.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./_notebooks/python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-quiz">Exercise 5 (Quiz)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-quiz">Exercise 6 (Quiz)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-quiz">Exercise 7 (Quiz)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Saleh Rezaeiravesh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

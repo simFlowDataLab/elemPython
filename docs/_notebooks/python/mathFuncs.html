@@ -1,0 +1,895 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>6. Arithmetic Operations &amp; Mathematical Expressions &#8212; Numerical Methods &amp; Computing in Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_notebooks/python/mathFuncs';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="5. Printing, Formatting, and Runtime Input" href="io_formatting.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../_md/index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Numerical Methods & Computing in Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Numerical Methods & Computing in Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preparation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Preliminaries</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lab1</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="variables.html">4. Variables &amp; Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_formatting.html">5. Printing, Formatting, and Runtime Input</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Arithmetic Operations &amp; Mathematical Expressions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/_notebooks/python/mathFuncs.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Arithmetic Operations & Mathematical Expressions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-operations">6.1. Arithmetic Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-type">6.1.1. Output type</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-value">6.2. Absolute value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematics-libraries">6.3. Mathematics Libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-notes-on-the-mathematical-functions">6.3.1. Some notes on the mathematical functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constants">6.4. Constants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-expressions">6.5. Mathematical Expressions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="arithmetic-operations-mathematical-expressions">
+<h1><span class="section-number">6. </span>Arithmetic Operations &amp; Mathematical Expressions<a class="headerlink" href="#arithmetic-operations-mathematical-expressions" title="Permalink to this heading">#</a></h1>
+<p>Saleh Rezaeiravesh, <a class="reference external" href="mailto:saleh&#46;rezaeiravesh&#37;&#52;&#48;manchester&#46;ac&#46;uk">saleh<span>&#46;</span>rezaeiravesh<span>&#64;</span>manchester<span>&#46;</span>ac<span>&#46;</span>uk</a> <br>
+Department of Mechanical and Aerospace Engineering, The University of Manchester, Manchester, UK</p>
+<hr class="docutils" />
+<div class="alert alert-block alert-info">
+<b>Overview:</b> 
+We first introduce the basic arithmetic operations and built-in mathematical functions in Python. Then, we extend the functions to those provided by the `math` and `cmath` libraries. All together, the functions can be used to write and evaluate various mathematical expressions in Python.</div><section id="arithmetic-operations">
+<h2><span class="section-number">6.1. </span>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this heading">#</a></h2>
+<p>The basic arithmetic operations in Python are listed below.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><strong>Operation</strong></p></th>
+<th class="head text-left"><p><strong>Operator</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Addition</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Subtraction</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Multiplication</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(*\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Float Division</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(/\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Floor Division</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(//\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Exponentiation</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(**\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Modulo (remainder)</p></td>
+<td class="text-left"><p>%</p></td>
+</tr>
+</tbody>
+</table>
+<section id="output-type">
+<h3><span class="section-number">6.1.1. </span>Output type<a class="headerlink" href="#output-type" title="Permalink to this heading">#</a></h3>
+<p>In general,</p>
+<ul class="simple">
+<li><p>The output type depends on the type of the operands and the type of operation.</p></li>
+<li><p>But, the outcome of float division is always a float.</p></li>
+</ul>
+<p>Through the following experiments, you can verify these points.</p>
+<ul class="simple">
+<li><p>Assume variables <span class="math notranslate nohighlight">\(x = 5\)</span> and <span class="math notranslate nohighlight">\(y = 8\)</span> to be integers. Then, investigate the outcome of the above operations and their type.</p></li>
+<li><p>Repeat the above, assuming <span class="math notranslate nohighlight">\(x = 5.1\)</span> and <span class="math notranslate nohighlight">\(y=8\)</span>, and then <span class="math notranslate nohighlight">\(x = 5.1\)</span> and <span class="math notranslate nohighlight">\(y=8.0\)</span>.</p></li>
+<li><p>Repeat the above, assuming <span class="math notranslate nohighlight">\(x = 5.2\)</span> and <span class="math notranslate nohighlight">\(y=8\)</span>, and then <span class="math notranslate nohighlight">\(x = 5.2\)</span> and <span class="math notranslate nohighlight">\(y=8.0\)</span>.</p></li>
+</ul>
+<p><strong>Task:</strong> What are your conclusions? Do you observe any unexpected result? Motivate your observations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign variables of different type</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">8</span>
+
+<span class="c1"># arithmetic operations</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>    <span class="c1"># addition</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>    <span class="c1"># subtraction</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>    <span class="c1"># multiplication</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>    <span class="c1"># float division</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">x</span> <span class="o">//</span> <span class="n">y</span>   <span class="c1"># floor division</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="n">y</span>   <span class="c1"># exponentiation</span>
+<span class="n">o</span> <span class="o">=</span> <span class="n">x</span> <span class="o">%</span> <span class="n">y</span>    <span class="c1"># remainder </span>
+
+<span class="c1">#print the outcome</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">; output type = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> - </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">; output type = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> * </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s1">; output type = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s1">; output type = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> // </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s1">; output type = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> ** </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">; output type = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> % </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">o</span><span class="si">}</span><span class="s1">; output type = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">o</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 + 8 = 13; output type = &lt;class &#39;int&#39;&gt;
+5 - 8 = -3; output type = &lt;class &#39;int&#39;&gt;
+5 * 8 = 40; output type = &lt;class &#39;int&#39;&gt;
+5 / 8 = 0.625; output type = &lt;class &#39;float&#39;&gt;
+5 // 8 = 0; output type = &lt;class &#39;int&#39;&gt;
+5 ** 8 = 390625; output type = &lt;class &#39;int&#39;&gt;
+5 % 8 = 5; output type = &lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="absolute-value">
+<h2><span class="section-number">6.2. </span>Absolute value<a class="headerlink" href="#absolute-value" title="Permalink to this heading">#</a></h2>
+<p>For absolute value <span class="math notranslate nohighlight">\(|x|\)</span>, there is a native Python function: <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code>.</p>
+<ul class="simple">
+<li><p>For a integer/float number <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> returns the absolute value of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p>For complex number <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> returns the magnitude of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ul>
+<p>See the following example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.65</span>         <span class="c1"># float</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.65</span> <span class="o">+</span> <span class="mf">2.0</span><span class="n">j</span>  <span class="c1"># complex</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|a1| = </span><span class="si">{</span><span class="n">a1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|a2| = </span><span class="si">{</span><span class="n">a2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|a1 + a2| = </span><span class="si">{</span><span class="n">a1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|a1| = -3.65
+|a2| = (-3.65+2j)
+|a1 + a2| = (-7.3+2j)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mathematics-libraries">
+<h2><span class="section-number">6.3. </span>Mathematics Libraries<a class="headerlink" href="#mathematics-libraries" title="Permalink to this heading">#</a></h2>
+<p>The arithmetic operations and <code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> discussed above, are built into Python. However, we often encounter other mathematical functions, such as <span class="math notranslate nohighlight">\(\sin(x)\)</span>, <span class="math notranslate nohighlight">\(\sin^{-1}(x)\)</span>, <span class="math notranslate nohighlight">\(\log(x)\)</span>, <span class="math notranslate nohighlight">\(\exp(x)\)</span>, etc., in mathematical expressions. These functions can be <strong>imported from Python libraries</strong>.</p>
+<ul class="simple">
+<li><p>For mathematical functions with <strong>scalar inputs and outputs</strong>, we can use the <code class="docutils literal notranslate"><span class="pre">math</span></code> and <code class="docutils literal notranslate"><span class="pre">cmath</span></code> libraries, as discussed below.</p></li>
+<li><p>For mathematical functions that operate on <strong>arrays</strong>, we will use the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library, which will be introduced in future lectures and computer labs.</p></li>
+</ul>
+<p>Focusing on scalar inputs and outputs, the choice between <code class="docutils literal notranslate"><span class="pre">math</span></code> and <code class="docutils literal notranslate"><span class="pre">cmath</span></code> mainly depends on whether we are working with real or complex numbers:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">math</span></code>: Provides mathematical functions for real numbers, including integers (int) and floating-point numbers (float).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmath</span></code>: Provides mathematical functions for complex numbers (complex).</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Input type</p></th>
+<th class="head text-left"><p>Library</p></th>
+<th class="head text-left"><p>List of functions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Real number</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">math</span></code></p></td>
+<td class="text-left"><p><a class="reference external" href="https://docs.python.org/3/library/math.html">math functions</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Complex number</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">cmath</span></code></p></td>
+<td class="text-left"><p><a class="reference external" href="https://docs.python.org/3/library/cmath.html#module-cmath">cmath functions</a></p></td>
+</tr>
+</tbody>
+</table>
+<p>In the links provided, you can see different functions including trigonometric, logarithmic, hyperbolic, etc.</p>
+<p>To use a function, we need to import the corresponding library at the beginning of a Python script. The imported libraries can also be given shorter names for convenience.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">mt</span>
+<span class="kn">import</span> <span class="nn">cmath</span> <span class="k">as</span> <span class="nn">cmt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Example:</strong> For a real (float or integer) input, we can call functions from either of the these two libraries. Note that the format of the output can be different depending on the input type and operations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">3.6</span>   <span class="c1"># float </span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>   <span class="c1"># math function  -&gt; real output</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cmt</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># cmath function -&gt; complex output</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.44252044329485246
+(-0.44252044329485246-0j)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Example:</strong> For a complex number input, we can only use functions from <code class="docutils literal notranslate"><span class="pre">cmath</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mf">3.6</span> <span class="o">+</span> <span class="mf">2.5</span><span class="n">j</span>   <span class="c1">#complex number input</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cmt</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>    <span class="c1">#cmath function</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2.7136634589531345-5.425571788915j)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you try <code class="docutils literal notranslate"><span class="pre">print(mt.sin(z))</span></code>, you will get a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+<section id="some-notes-on-the-mathematical-functions">
+<h3><span class="section-number">6.3.1. </span>Some notes on the mathematical functions<a class="headerlink" href="#some-notes-on-the-mathematical-functions" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>For the trigonometric functions such as <span class="math notranslate nohighlight">\(\sin(x)\)</span>, <span class="math notranslate nohighlight">\(\cos(x)\)</span>, etc imported from the above libraries, <span class="math notranslate nohighlight">\(x\)</span> is in radians. You can convert degrees and radians to each other using <code class="docutils literal notranslate"><span class="pre">math.radians(x)</span></code> and <code class="docutils literal notranslate"><span class="pre">math.degrees(x)</span></code>, respectively.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sin(30 deg) = </span><span class="si">{</span><span class="n">mt</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tan(45 deg) = </span><span class="si">{</span><span class="n">mt</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">45</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sin(30 deg) = 0.49999999999999994
+tan(45 deg) = 0.9999999999999999
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Be careful about <span class="math notranslate nohighlight">\(\ln(x)\)</span> that is <code class="docutils literal notranslate"><span class="pre">math.log(x)</span></code>, and base-10 <span class="math notranslate nohighlight">\(log(x)\)</span> that is <code class="docutils literal notranslate"><span class="pre">math.log10(x)</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; ln(100) = </span><span class="si">{</span><span class="n">mt</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; log(100) = </span><span class="si">{</span><span class="n">mt</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> ln(100) = 4.605170185988092
+ log(100) = 2.0
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Providing inadmissible values to a particular mathematical function will generate an error. Therefore, a prior knowledge of the admissible domain a mathematical function is important.</p></li>
+</ul>
+<p>For instance, we know for <span class="math notranslate nohighlight">\(\sin^{-1}(x) = \arcsin(x)\)</span>, we should have <span class="math notranslate nohighlight">\(-1 \leq x\leq 1\)</span>. Trying an <span class="math notranslate nohighlight">\(x\)</span> outside of this range will generate <code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">math</span> <span class="pre">domain</span> <span class="pre">error</span></code>. You can try it below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1">#try a value greater than 1 or smaller than -1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;arcsin(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">) = </span><span class="si">{</span><span class="n">mt</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2"> radians.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>arcsin(0.5) = 0.5235987755982989 radians.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In particular, pay attention to the square root of a negative value. There is no issue if the <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code> function is imported from <code class="docutils literal notranslate"><span class="pre">cmath</span></code>, but there will be a domain error if the same function is imported from <code class="docutils literal notranslate"><span class="pre">math</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.5</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cmt</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>  <span class="c1"># using cmath.sqrt -&gt; fine</span>
+<span class="c1">#print(mt.sqrt(b))  # using math.sqrt -&gt; math domain error</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.224744871391589j
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="constants">
+<h2><span class="section-number">6.4. </span>Constants<a class="headerlink" href="#constants" title="Permalink to this heading">#</a></h2>
+<p>The above libraries have values for some of the common consttants, see the following table (you will learn about <code class="docutils literal notranslate"><span class="pre">numpy</span></code> in next notebooks):</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Constant</p></th>
+<th class="head text-left"><p>Python value</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\pi\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">math.pi</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy.pi</span></code></p></td>
+<td class="text-left"><p>Pi, approximately 3.141592653589793</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(e\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">math.e</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy.e</span></code></p></td>
+<td class="text-left"><p>Euler’s number (Napier’s constant), approximately 2.718281828459045; base of the natural logarithm</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\infty\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">math.inf</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy.inf</span></code></p></td>
+<td class="text-left"><p>Floating-point representation of positive infinity</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">NaN</span></code> (Not a Number)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">math.nan</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy.nan</span></code></p></td>
+<td class="text-left"><p>Special floating-point value representing an undefined or unrepresentable numerical result</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">inf</span></code> and <code class="docutils literal notranslate"><span class="pre">nan</span></code> are special floating-point values.
+For example, <code class="docutils literal notranslate"><span class="pre">numpy.sqrt(-1.0)</span></code> returns <code class="docutils literal notranslate"><span class="pre">nan</span></code> (with a warning), while
+<code class="docutils literal notranslate"><span class="pre">numpy.log(0.0)</span></code> returns <code class="docutils literal notranslate"><span class="pre">-inf</span></code> (also with a warning).</p>
+<p>Similar constants from <code class="docutils literal notranslate"><span class="pre">math</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy</span></code> have the same values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;math.pi = </span><span class="si">{</span><span class="n">mt</span><span class="o">.</span><span class="n">pi</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;math.e = </span><span class="si">{</span><span class="n">mt</span><span class="o">.</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;math.inf = </span><span class="si">{</span><span class="n">mt</span><span class="o">.</span><span class="n">inf</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;math.nan = </span><span class="si">{</span><span class="n">mt</span><span class="o">.</span><span class="n">nan</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>math.pi = 3.141592653589793
+math.e = 2.718281828459045
+math.inf = inf
+math.nan = nan
+</pre></div>
+</div>
+</div>
+</div>
+<p>To check whether a value is <code class="docutils literal notranslate"><span class="pre">nan</span></code> or <code class="docutils literal notranslate"><span class="pre">inf</span></code>, use the following functions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">math.isnan()</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.isnan()</span></code>: Check whether a value is <code class="docutils literal notranslate"><span class="pre">nan</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">math.isinf()</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.isinf()</span></code>: Check whether a value is positive or negative infinity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">math.isfinite()</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.isfinite()</span></code>: Check whether a value is finite (neither <code class="docutils literal notranslate"><span class="pre">nan</span></code> nor <code class="docutils literal notranslate"><span class="pre">inf</span></code>).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">inf</span><span class="p">))</span>   
+<span class="nb">print</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="o">-</span><span class="n">mt</span><span class="o">.</span><span class="n">inf</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">inf</span><span class="p">))</span>  
+<span class="nb">print</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="mf">10.0</span><span class="p">))</span>      
+<span class="nb">print</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="mf">10.0</span><span class="p">))</span>    
+<span class="nb">print</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">inf</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+False
+False
+True
+False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mathematical-expressions">
+<h2><span class="section-number">6.5. </span>Mathematical Expressions<a class="headerlink" href="#mathematical-expressions" title="Permalink to this heading">#</a></h2>
+<p>You can use Python built-in operations and functions, as well as functions imported from libraries like <code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">cmath</span></code>, and later <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to translate mathematical expressions to Python language. <br></p>
+<p>When doing so, the most important thing is to be aware of the <strong>precedence order of operations</strong>, that is: <br>
+( ) <span class="math notranslate nohighlight">\(\quad \to \quad\)</span> ** <span class="math notranslate nohighlight">\(\quad \to \quad\)</span> unary - <span class="math notranslate nohighlight">\(\quad \to \quad\)</span> * / // % <span class="math notranslate nohighlight">\(\quad \to \quad\)</span> + - <br>
+Parentheses <span class="math notranslate nohighlight">\(\to\)</span> power <span class="math notranslate nohighlight">\(\to\)</span> negative sign <span class="math notranslate nohighlight">\(\to\)</span> multiplication, float division, floor division, remainder <span class="math notranslate nohighlight">\(\to\)</span> addition, subtraction</p>
+<p><strong>Example:</strong> See the difference between <span class="math notranslate nohighlight">\(-2^4\)</span>, <span class="math notranslate nohighlight">\((-2)^4\)</span>, and <span class="math notranslate nohighlight">\(-2^{-4}\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">((</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-16
+16
+-0.0625
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Example:</strong> See the difference between <span class="math notranslate nohighlight">\(2^{3^2}\)</span>, <span class="math notranslate nohighlight">\((2^3)^2\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">((</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>512
+64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s evaluate a few mathematical expressions in Python.</p>
+<p>Evaluate <span class="math notranslate nohighlight">\(y = \sqrt{x^2 + \exp(1-x)\sin(x)}\)</span> at a given <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">2.2</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">mt</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">mt</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">mt</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.2546650387989544
+</pre></div>
+</div>
+</div>
+</div>
+<p>Evaluate <span class="math notranslate nohighlight">\(y\)</span> defined in the following expression for given values of <span class="math notranslate nohighlight">\(x\)</span> (in degrees) and <span class="math notranslate nohighlight">\(t\)</span>. Print the output <span class="math notranslate nohighlight">\(y\)</span> with 4 decimal places in standard and scientific formats.</p>
+<div class="math notranslate nohighlight">
+\[
+y = t\sin(2x)+\cos^{-1}(\frac{2}{t+1}) + \ln(t-2) + e^{1-t^2} + \sqrt{t}
+\]</div>
+<p>Note: The value of <span class="math notranslate nohighlight">\(t\)</span> should be greater than 2 (why?).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">22.3</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">5.0</span> 
+
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">mt</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">mt</span><span class="o">.</span><span class="n">acos</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> 
+    <span class="o">+</span> <span class="n">mt</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">mt</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">mt</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y = </span><span class="si">{</span><span class="n">y</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># standard float, 4 decimal places</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y = </span><span class="si">{</span><span class="n">y</span><span class="si">:</span><span class="s2">.4e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># scientific float, 4 decimal places</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y = 7.4615
+y = 7.4615e+00
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./_notebooks/python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="io_formatting.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Printing, Formatting, and Runtime Input</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-operations">6.1. Arithmetic Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-type">6.1.1. Output type</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-value">6.2. Absolute value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematics-libraries">6.3. Mathematics Libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-notes-on-the-mathematical-functions">6.3.1. Some notes on the mathematical functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constants">6.4. Constants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-expressions">6.5. Mathematical Expressions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Saleh Rezaeiravesh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
