@@ -10,9 +10,8 @@ parts:
   chapters:
   - file: _notebooks/python/variables
   - file: _notebooks/python/io_formatting
-    #- file: _notebooks/python/importLibs
   - file: _notebooks/python/mathFuncs
-  - file: _notebooks/python/lab1_exercise
+    #  - file: _notebooks/python/lab1_exercise
 #- caption: Lab2 #(Lists, conditional statements and loops)
 #  numbered: true
 #  chapters:
